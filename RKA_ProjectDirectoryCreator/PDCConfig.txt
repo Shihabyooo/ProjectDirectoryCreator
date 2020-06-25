@@ -1,0 +1,28 @@
+#Lines begining with hash symbol # are considered comments
+#DirFor is the project's directory name format to be followed when creating a directory, the codes for the name formats is as follows:
+#		Square brackets [ and ] Denote fixed strings that will appear verbatem in name.
+#		Round brackets () denote a field that will be prompted for the user to enter.
+#		<> denote special formats:
+#				<N> Will be replaced with a number that will be incremented if another project directory with same number exists in the current work directory.
+#				<D> Will be replaced with current date (as set in the operating system), using ISO 8601 standard 
+#Example: [Project ]<N>[ - ](Client)[ - ]<D>
+#Note the spaces after Project and before and after the hyphens.
+#When program runs, it will prompt the user to enter a string for 'Client', then will scan current work directory for any directories with Project 1, if non were found, will use Project 1, if one were found, will try for Project 2, and so on.
+#The end result will be (assuming User enters client "Mohamed Ahmed," project number 3 was free, and date is 1st of june, 2020): 'Project 3 - Mohamed Ahmed - 20200601'
+           <DirFor>
+[Project ]<N>[ - ](Client)[ - ]<D>
+ </DirFor>
+
+
+#Any line between <Subdir> and </Subdir> is considered a name for a folder to be created inside the project's directory, avoid empty lines, avoid characters not supported by Windows for file paths.
+<SubDir>
+Client
+   References
+         3D
+Misc
+Test1
+Test222
+Example
+Hahahaha
+Lol
+</SubDir>
